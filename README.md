@@ -51,3 +51,21 @@ do_token = "SEU_TOKEN_DA_DIGITALOCEAN"
 ```
 
 **IMPORTANTE:** Nunca submeta o arquivo `terraform.tfvars` ou seu token de acesso para um repositório Git. Adicione `terraform.tfvars` e `*.auto.tfvars` ao seu arquivo `.gitignore`.
+
+## Destruindo a Infraestrutura
+
+Para remover todos os recursos criados pelo Terraform, utilize o comando `destroy`.
+
+**IMPORTANTE:** Antes de executar o `terraform destroy`, é crucial remover os recursos do Kubernetes que foram aplicados manualmente, para evitar que fiquem órfãos.
+
+Execute o seguinte comando para deletar o deployment no Kubernetes:
+
+```bash
+kubectl delete -f k8s/deployment.yaml
+```
+
+Depois de remover os recursos do Kubernetes, você pode destruir a infraestrutura com segurança:
+
+```bash
+terraform destroy
+```
