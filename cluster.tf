@@ -1,7 +1,8 @@
 resource "digitalocean_kubernetes_cluster" "main" {
-  name    = var.name
-  region  = var.region
-  version = var.ver
+  name     = var.name
+  region   = var.region
+  version  = var.ver
+  vpc_uuid = digitalocean_vpc.main.id
 
   node_pool {
     name       = var.node_name

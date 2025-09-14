@@ -4,10 +4,22 @@ variable "do_token" {
   sensitive   = true
 }
 
+variable "vpc_name" {
+  description = "VPC name"
+  type        = string
+  default     = "lab-vpc"
+}
+
+variable "vpc_range" {
+  description = "VPC IP range"
+  type        = string
+  default     = "10.10.10.0/24"
+}
+
 variable "name" {
   description = "Cluster name"
   type        = string
-  default     = "dolab"
+  default     = "lab-k8s"
 }
 
 variable "region" {
@@ -25,7 +37,7 @@ variable "ver" {
 variable "node_name" {
   description = "Node name"
   type        = string
-  default     = "default"
+  default     = "lab-node"
 }
 
 variable "node_size" {
