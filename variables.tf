@@ -52,20 +52,23 @@ variable "node_count" {
   default     = 3
 }
 
-variable "db_name" {
-  description = "Database cluster name"
-  type        = string
-  default     = "db-postgresql-nyc2-1"
-}
-
-variable "db_size" {
-  description = "Database machine size"
-  type        = string
-  default     = "db-s-1vcpu-1gb"
-}
-
-variable "db_version" {
-  description = "Database version"
-  type        = string
-  default     = "15"
+variable "databases" {
+  description = "Database configurations for different environments"
+  type = map(object({
+    name    = string
+    size    = string
+    version = string
+  }))
+  default = {
+    homologacao = {
+      name    = "db-homologacao"
+      size    = "db-s-1vcpu-1gb"
+      version = "15"
+    }
+    # producao = {
+    #   name    = "db-producao"
+    #   size    = "db-s-1vcpu-1gb"
+    #   version = "15"
+    # }
+  }
 }
