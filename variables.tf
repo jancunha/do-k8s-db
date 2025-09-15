@@ -1,8 +1,8 @@
-# variable "do_token" {
-#   description = "DigitalOcean API token"
-#   type        = string
-#   sensitive   = true
-# }
+variable "do_token" {
+  description = "DigitalOcean API token"
+  type        = string
+  sensitive   = true
+}
 
 variable "vpc_name" {
   description = "VPC name"

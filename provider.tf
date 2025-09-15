@@ -12,5 +12,5 @@ terraform {
 }
 
 provider "digitalocean" {
-  token = {}
+  token = var.do_token
 }
